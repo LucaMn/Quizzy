@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="Stylesheet" type="text/css" href="../Public/css/index.css" />
+    <title>Quizzy</title>
+</head>
+<body>
+<div class="container">
+    <div class="logo">
+        <img src="../Public/img/logo.svg">
+    </div>
+    <form>
+	<div class="formscore"><center>Zdobyłeś 
+	<script>
+	var query = decodeURIComponent(window.location.search);
+	document.write(query.slice(query.lastIndexOf("=")+1) );
+	</script>
+	/10 puntków</center></div>
+	<input TYPE="button" VALUE="Rozpocznij kolejny quiz"
+        onclick="window.location.href='quiz.php'"> 
+    </form>
+</div>
+</body>
+</html>

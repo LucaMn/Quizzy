@@ -1,0 +1,175 @@
+body{
+	margin:0;
+	background-color:#229BC1;
+	font-family: sans-serif;
+}
+*{
+	box-sizing:border-box;
+}
+
+.container{
+	flex-direction: row;
+	max-width: 700px;
+	min-height: 500px;
+	margin:0px auto;
+	border-radius: 10px;
+	padding:20px;
+	color:#ffffff;
+}
+.question-number,
+.question,
+.options,
+.button,
+.answers-tracker{
+
+}
+.question-number h3{
+	margin:0;
+	padding-bottom: 10px;
+}
+
+.question {
+	margin:1em 0 2em 0;
+	font-size:24px;
+	padding:15px 0px;
+}
+
+.answers div{
+	padding: 15px;
+	margin: 0 0 1em 0;
+    color: white;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 2em;
+    border:2px solid #ffffff;
+    line-height: 2.5em;
+    font-size: 1em;
+    position: relative;
+    overflow: hidden;
+}
+.bars div{
+	
+	width:100%;
+    color: white;
+    border-radius: 2em;
+    
+    
+    position: relative;
+    overflow: hidden;
+}
+
+.answers div.disabled{
+	pointer-events: none;
+}
+.answers div.correct{
+	z-index: 1;
+}
+.answers div.correct::before{
+	content:'';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width:100%;
+	height: 100%;
+	background-color: green;
+	box-shadow: 0px 3px 6px #00000029;
+    border-radius: 2em;
+	z-index: -1;
+}
+
+.answers div.wrong{
+	z-index: 1;
+}
+.answers div.wrong::before{
+	content:'';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width:100%;
+	height: 100%;
+	background-color: red;
+	box-shadow: 0px 3px 6px #00000029;
+    border-radius: 2em;
+	z-index: -1;
+}
+
+.progressBar{
+	width:100%;
+	margin: 2em 0 0em 0em;
+	border:2px solid #2CB712;
+	box-shadow: 0px 3px 6px #00000029;
+}
+.prgB{
+	width:100%;
+	border-radius: 2em;
+	background-color:#2CB712;
+}
+
+.timeBar{
+	margin: 4em 0 0em 0em;
+	box-shadow: 0px 3px 6px #265990;
+	border:2px solid #265990;
+}
+
+.timeBar div{
+	background-color:#265990;
+	
+	margin: 4em 0 0em 0em;
+    color: white;
+    box-shadow: 0px 3px 6px #265990;
+    border:2px solid #265990;
+    
+    line-height: 2.5em;
+    font-size: 1em;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeBar.anim{
+	z-index: 1;
+}
+
+.timeBar.anim::before{
+	background-color:#265990;
+	border:2px solid #265990;
+	box-shadow: 0px 3px 6px #265990;
+	content:'';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width:100%;
+	height: 100%;
+	z-index: -1;
+	animation: animateBackground 30s ease;
+	animation-fill-mode: forwards;
+}
+@keyframes animateBackground{
+	0%{
+		transform: translateX(0%);
+	}
+	100%{
+		transform: translateX(-100%);
+	}
+}
+
+	
+@media only screen and (max-device-width: 1000px){
+     .question{
+     	font-size: 44px;
+     }
+    .container {
+    	font-size: 36px;
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .question{
+     	font-size: 30px;
+     }
+    .container {
+    	font-size: 18px;
+        flex-direction: column;
+    }
+    
+}
