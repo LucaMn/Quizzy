@@ -91,6 +91,9 @@ body{
     border-radius: 2em;
 	z-index: -1;
 }
+.navbar-font-color{
+    color:#999cb4;
+}
 
 .progressBar{
 	width:100%;

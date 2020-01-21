@@ -17,7 +17,7 @@ let score=0;
 
 
 function check(element){
-	if(element.innerHTML==questions[questionIndex][5]){
+	if(element.innerHTML==questions[questionIndex].correct){
 		element.classList.add("correct");
 		score++;
 	}
@@ -36,7 +36,7 @@ function disableAnswers(){
 	elemen.classList.remove('anim');
 	for(let i=0; i<answers.length; i++){
 		answers[i].classList.add("disabled");
-		if(answers[i].innerHTML==questions[questionIndex][5]){
+		if(answers[i].innerHTML==questions[questionIndex].correct){
 			answers[i].classList.add("correct");
 		}
 	}
@@ -115,11 +115,11 @@ function countDown(){
 function loadView(){
 	index++;
 	questionNumber.innerHTML=index;
-	question.innerHTML=index + ". " + questions[questionIndex][0];
-	an1.innerHTML=questions[questionIndex][1];
-	an2.innerHTML=questions[questionIndex][2];
-	an3.innerHTML=questions[questionIndex][3];
-	an4.innerHTML=questions[questionIndex][4];
+	question.innerHTML=index + ". " + questions[questionIndex].question;
+	an1.innerHTML=questions[questionIndex].a1;
+	an2.innerHTML=questions[questionIndex].a2;
+	an3.innerHTML=questions[questionIndex].a3;
+	an4.innerHTML=questions[questionIndex].a4;
 	const prgBar=document.querySelector(".prgB");
 	let barWidth=document.querySelector(".progressBar").clientWidth;
 	barWidth = barWidth/10 * index;
@@ -133,7 +133,13 @@ function loadView(){
 function quizOver(){
 	disableAnswers();
 	var quer = "?scr=" + score;
-	window.location.href='result.html' + quer;
+	//window.location.href='?page=result';
+	//$.post('?page=result');
+	var form = $('<form action="?page=result" method="POST">' +
+	'<input type="number" name="score" value="' + score + '" />' +
+	'</form>');
+	$('body').append(form);
+	form.submit();
 }
 
 
